@@ -10,14 +10,13 @@
 - キーボードでのショットキーは「Z」キー。
 
 ## スクリーンショット
-![タイトルSS](https://sanbunnoichi.web.fc2.com/png/pyxelinv_t.png)
-![ゲーム中SS](https://sanbunnoichi.web.fc2.com/png/pyxelinv_g.png)
+![SS](pyxelinv_t.png)
 
 ## GIFアニメ
 ![GIF](pyxelinv_game.gif)
 
 ## 動作確認
-- [html](https://sanbunnoichi.web.fc2.com/pyxel/pyxelinv.html))
+- [URL](https://sanbunnoichi.web.fc2.com/pyxel/pyxelinv.html))
 
 ##更新履歴
 07.24.2024 新規追加
