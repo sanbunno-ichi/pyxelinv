@@ -2495,15 +2495,6 @@ def line_pattern( type, dx, dy, dn ):
 		adr = t_dottbldn_7
 	elif dn == 0x1a: 
 		adr = t_dottbldd_h
-
-#	elif dn == 0x1b: 
-#		adr = t_dottbldd_0
-#	elif dn == 0x1c: 
-#		adr = t_dottbldd_1
-#	elif dn == 0x1d: 
-#		adr = t_dottbldd_2
-#	elif dn == 0x1e: 
-#		adr = t_dottbldd_3
 	else:
 		return
 
@@ -3705,8 +3696,6 @@ def draw():
 				line_pattern( 1, xp, (yp +                                             ( num      * ofs)), 0x00 )
 			elif((num >= (16+0)) and (num < (16+8))):
 				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) +                       ((num-16)  * ofs),  0x11 )
-#			elif((num >= (16+8)) and (num < (16+8+4))):
-#				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) + ((8*ofs) + kankaku) + ((num-16-8) * ofs), 0x1a )
 		elif(( title_counter2 >= (16+8+4)*4 + 32 ) and ( title_counter2 < (16+8+4)*8 + 32 )):
 			num = ( title_counter2 - 32 - (16+8+4)*4 ) >> 2
 			if((num >= 0) and (num < 16)):
@@ -3715,9 +3704,6 @@ def draw():
 			elif((num >= (16+0)) and (num < (16+8))):
 				line_pattern( 0, xp, (yp + (16*ofs) + kankaku) + ((num-16) * ofs), 0x11 )
 				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) + ((num-16) * ofs), 18+(num-16) )
-#			elif((num >= (16+8)) and (num < (16+8+4))):
-#				line_pattern( 0, xp, (yp + (16*ofs) + kankaku) + ((8*ofs) + kankaku) + ((num-16-8) * ofs), 0x1a )
-#				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) + ((8*ofs) + kankaku) + ((num-16-8) * ofs), 0x1b+(num-24) )
 		elif(( title_counter2 >= (16+8+4)*8 + 32 ) and ( title_counter2 < (16+8+4)*8 + 32 + 1 )):
 			#set_font_text( 0x5c, 0xa8, 'VER.0.97', 0, 0 )
 			set_font_text( 0x54, 0xa8, '07.24.2024', 0, 0 )
