@@ -15,8 +15,5 @@
 ## GIFアニメ
 ![GIF](pyxelinv_game.gif)
 
-## 動作確認
-- [URL](https://sanbunnoichi.web.fc2.com/pyxel/pyxelinv.html)
-
 ## 更新履歴
 07.24.2024 新規追加
