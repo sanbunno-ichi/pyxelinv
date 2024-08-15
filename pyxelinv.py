@@ -3,6 +3,7 @@ import pyxel
 #---------------------------------------------------------------------------------------------------
 #更新履歴
 
+#08.15.2024 入力関数btnpの引数を１個に変更（html化するとエラーになる対応）
 #07.24.2024 公開
 #07.23.2024 効果音歩行音のみ変更（Version 0.97）
 #07.23.2024 ランキング、ネームエントリー組み込み
@@ -2495,6 +2496,15 @@ def line_pattern( type, dx, dy, dn ):
 		adr = t_dottbldn_7
 	elif dn == 0x1a: 
 		adr = t_dottbldd_h
+
+#	elif dn == 0x1b: 
+#		adr = t_dottbldd_0
+#	elif dn == 0x1c: 
+#		adr = t_dottbldd_1
+#	elif dn == 0x1d: 
+#		adr = t_dottbldd_2
+#	elif dn == 0x1e: 
+#		adr = t_dottbldd_3
 	else:
 		return
 
@@ -3303,7 +3313,7 @@ def player_move():
 
 		#<<<<<< 移動制御 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>	
 
-		if pyxel.btnp(pyxel.KEY_RIGHT,1,1) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT,1,1):	#右？
+		if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):	#右？
 			if(O_SPR_WORK[spw_player][xpos] < LIM_P_RIGHT):
 				#移動前に削除
 				dot_pattern(0,O_SPR_WORK[spw_player][xpos],O_SPR_WORK[spw_player][ypos],DOT_PATTERN_HOUDAI, game_color_mode)
@@ -3311,7 +3321,7 @@ def player_move():
 				O_SPR_WORK[spw_player][xpos] = O_SPR_WORK[spw_player][xpos] + 1
 				#移動後に描画
 				dot_pattern(1, O_SPR_WORK[spw_player][xpos],O_SPR_WORK[spw_player][ypos],DOT_PATTERN_HOUDAI, game_color_mode)
-		elif pyxel.btnp(pyxel.KEY_LEFT,1,1) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT,1,1):	#左？
+		elif pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):	#左？
 			if(O_SPR_WORK[spw_player][xpos] > LIM_P_LEFT):
 				#移動前に削除
 				dot_pattern(0,O_SPR_WORK[spw_player][xpos],O_SPR_WORK[spw_player][ypos],DOT_PATTERN_HOUDAI, game_color_mode)
@@ -3322,7 +3332,7 @@ def player_move():
 
 		#<<<<<< 弾出し >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-		if pyxel.btnp(pyxel.KEY_Z, 60, 60) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A,60,60):		#ショット（ひとまず押しっぱなし抑制はこれで対応）
+		if pyxel.btnp(pyxel.KEY_Z) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):		#ショット（ひとまず押しっぱなし抑制はこれで対応）
 			if((game_flag & GF_EHIT) == 0):	#敵爆発中は出せない
 				if((O_SPR_WORK[spw_ptama][cond] & F_LIVE) == 0):
 					if((O_SPR_WORK[spw_ptama][cond] & F_HIT) == 0):
@@ -3696,6 +3706,8 @@ def draw():
 				line_pattern( 1, xp, (yp +                                             ( num      * ofs)), 0x00 )
 			elif((num >= (16+0)) and (num < (16+8))):
 				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) +                       ((num-16)  * ofs),  0x11 )
+#			elif((num >= (16+8)) and (num < (16+8+4))):
+#				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) + ((8*ofs) + kankaku) + ((num-16-8) * ofs), 0x1a )
 		elif(( title_counter2 >= (16+8+4)*4 + 32 ) and ( title_counter2 < (16+8+4)*8 + 32 )):
 			num = ( title_counter2 - 32 - (16+8+4)*4 ) >> 2
 			if((num >= 0) and (num < 16)):
@@ -3704,6 +3716,9 @@ def draw():
 			elif((num >= (16+0)) and (num < (16+8))):
 				line_pattern( 0, xp, (yp + (16*ofs) + kankaku) + ((num-16) * ofs), 0x11 )
 				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) + ((num-16) * ofs), 18+(num-16) )
+#			elif((num >= (16+8)) and (num < (16+8+4))):
+#				line_pattern( 0, xp, (yp + (16*ofs) + kankaku) + ((8*ofs) + kankaku) + ((num-16-8) * ofs), 0x1a )
+#				line_pattern( 1, xp, (yp + (16*ofs) + kankaku) + ((8*ofs) + kankaku) + ((num-16-8) * ofs), 0x1b+(num-24) )
 		elif(( title_counter2 >= (16+8+4)*8 + 32 ) and ( title_counter2 < (16+8+4)*8 + 32 + 1 )):
 			#set_font_text( 0x5c, 0xa8, 'VER.0.97', 0, 0 )
 			set_font_text( 0x54, 0xa8, '07.24.2024', 0, 0 )
@@ -3915,7 +3930,7 @@ def draw():
 	#ネームエントリー
 	elif scene_number == SCENE_NAME_ENTRY:
 		if (entry >= 0) and (entry < 10):		#文字選択（１文字目～１０文字目）
-			if pyxel.btnp(pyxel.KEY_Z, 60, 60) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A,60,60):
+			if pyxel.btnp(pyxel.KEY_Z) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
 				#[TO-SOUND]決定音
 				pyxel.play(1,4)
 				if( entry_select == 0x28 ):	#終了
@@ -3931,13 +3946,13 @@ def draw():
 					entry+=1
 					entry_select = 0
 
-			elif pyxel.btnp(pyxel.KEY_LEFT,60,60) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT,60,60):	#左？
+			elif pyxel.btnp(pyxel.KEY_LEFT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_LEFT):	#左？
 				if( entry_select <= 0 ):
 					entry_select = 0x29
 				else:
 					entry_select-=1
 
-			elif pyxel.btnp(pyxel.KEY_RIGHT,60,60) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT,60,60):	#右？
+			elif pyxel.btnp(pyxel.KEY_RIGHT) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_DPAD_RIGHT):	#右？
 				if( entry_select >= 0x29 ):
 					entry_select = 0
 				else:
