@@ -19,4 +19,6 @@
 - [URL](https://sanbunnoichi.web.fc2.com/pyxel/pyxelinv.html)
 
 ## 更新履歴
-07.24.2024 新規追加
+2024.10.09 各種調整  
+2024.08.15 btnp調整  
+2024.07.24 新規追加
