@@ -13,7 +13,8 @@
 ![SS](pyxelinv_t.png)
 
 ## GIFアニメ
-![GIF](pyxelinv_game.gif)
+![GIF](pyxelinv1009_title.gif)
+![GIF](pyxelinv1009_game.gif)
 
 ## 動作確認
 - [URL](https://sanbunnoichi.web.fc2.com/pyxel/pyxelinv.html)
