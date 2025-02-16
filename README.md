@@ -9,9 +9,6 @@
 - キーボード、ジョイパッド、バーチャルゲームパッドに対応しています。
 - キーボードでのショットキーは「Z」キー。
 
-## スクリーンショット
-![SS](pyxelinv_t.png)
-
 ## GIFアニメ
 ![GIF](pyxelinv1009_title.gif)
 ![GIF](pyxelinv1009_game.gif)
