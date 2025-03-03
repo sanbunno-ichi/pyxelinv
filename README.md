@@ -13,8 +13,8 @@
 ![GIF](pyxelinv1009_title.gif)
 ![GIF](pyxelinv1009_game.gif)
 
-## 動作確認
-- [URL](https://sanbunnoichi1962.web.fc2.com/pyxel/pyxelinv.html)
+## Goto Pyxel Contents
+[Pyxel Contents](https://sanbunnoichi1962.web.fc2.com/pyxel_contents.html)
 
 ## 更新履歴
 2024.10.09 各種調整  
