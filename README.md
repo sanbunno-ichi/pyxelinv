@@ -14,7 +14,7 @@
 ![GIF](pyxelinv1009_game.gif)
 
 ## Goto Pyxel Contents
-[Pyxel Contents](https://sanbunno-ichi.github.io/PyxelContents/)
+[Pyxel Contents](https://sanbunnoichi1962.web.fc2.com/pyxel_contents.html)
 ## 更新履歴
 2024.10.09 各種調整  
 2024.08.15 btnp調整  
